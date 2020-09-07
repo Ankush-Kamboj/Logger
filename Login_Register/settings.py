@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'Login_Register.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# Add your database setting here
+# Enter your Database Settings Here
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

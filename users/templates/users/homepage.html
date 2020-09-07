@@ -3,18 +3,69 @@
 {% block content %}
 
     <div class="container mt-5">
-        <div class="content-section mx-auto mt-5">
+        <div class="content-section mx-auto col-md-8">
             <h2>Welcome to Logger!</h2>
             <div class="border-top pt-3">
                 <h4>Create your account and save your details!</h4>
                 <h4>You can view your details.</h4>
             </div>
-            <div class="border-top pt-3">
-                <div class="row">
-                    <a href="{% url 'users-login' %}"><button class="btn btn-outline-primary ml-3 mr-3">Log In</button></a>
-                    <a href="{% url 'users-register' %}"><button class="btn btn-outline-primary">Register</button></a>
-                </div>    
+            
+
+            {% if users %}
+            <div class="content-section mx-auto mt-5">
+                <h2>Welcome {{users.name}} !</h2>
+                <div class="border-top pt-3">              
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <h6>Email</h6>
+                                <p>{{users.user}}</p>
+                            </div>
+                            <div class="col">
+                                <h6>College</h6>
+                                <p>{{users.college_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Degree</h6>
+                                <p>{{users.degree}}</p>
+                            </div>
+                            <div class="col">
+                                <h6>Course</h6>
+                                <p>{{users.course_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Passout Year</h6>
+                                <p>{{users.passout_year}}</p>
+                            </div>
+                            <div class="col">
+                                <h6>Age</h6>
+                                <p>{{users.age}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            {% else %}
+                {% if user.is_authenticated %}
+                <div class="border-top pt-3">
+                    <div class="row">
+                        <p>Please enter your details.</p>
+                        <a href="{% url 'users-create-profile' %}"><button class="btn btn-outline-primary ml-3 mr-3">Click here</button></a>
+                    </div>    
+                </div>
+                {% else %}
+                <div class="border-top pt-3">
+                    <div class="row">
+                        <a href="{% url 'users-login' %}"><button class="btn btn-outline-primary ml-3 mr-3">Log In</button></a>
+                        <a href="{% url 'users-register' %}"><button class="btn btn-outline-primary">Register</button></a>
+                    </div>    
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
     </div>
 

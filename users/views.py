@@ -9,7 +9,13 @@ from .models import Profile
 
 # HomePage
 def homepage(request):
-    return render(request, 'users/homepage.html')
+    current_user = request.user
+    details = Profile.objects.filter(user=current_user).first()
+    
+    if details:
+        return render(request, 'users/homepage.html', {'users':details})
+    else:
+        return render(request, 'users/homepage.html')
 
 
 # Register Page
@@ -34,7 +40,7 @@ def createProfile(request):
     details = Profile.objects.filter(user=current_user).first()
     
     if details:
-        return render(request, 'users/profile.html', {'users':details})
+        return render(request, 'users/homepage.html', {'users':details})
     
     else:
         if request.method == 'POST':
@@ -43,22 +49,11 @@ def createProfile(request):
                 details = form.save(commit=False)
                 details.user = request.user
                 details.save()
-                return redirect('users-profile')
+                return redirect('users-homepage')
         else:
                 form = ProfileForm()
     
     return render(request, 'users/createProfile.html', {'form':form})
-
-
-# Display Profile Details Page - Login is required for this Page
-@login_required
-def profile(request):
-    current_user = request.user
-    details = Profile.objects.filter(user=current_user).first()
-    if details:
-        return render(request, 'users/profile.html', {'users':details})
-    else:
-        return redirect('users-create-profile')
 
 
 # Login Page
@@ -66,7 +61,7 @@ class LoginView(auth_views.LoginView):
     template_name = 'users/login.html'
 
     def get_success_url(self):
-        return resolve_url('users-profile')
+        return resolve_url('users-create-profile')
 
 
 # Logout Page
