@@ -1,5 +1,5 @@
 # Logger
-Django Login&Register User App
+###### Django Login & Register User App
 In this application you can register user and login to see your profile. If you haven't created your profile after login you will be taken to create profile page.
 
 ## Features
