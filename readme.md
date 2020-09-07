@@ -8,6 +8,8 @@ In this application you can register user and login to see your profile. If you 
 * Register, Login, Logout
 * Login is required to access Profile and create profile pages.
 
+## Author
+Ankush Kamboj
 
 ## Installation
 ### Prerequisities
@@ -55,3 +57,17 @@ Create a virtual environment and activate it.
 	python manage.py runserver
   
 Try opening http://localhost:8000/ and you are good to go.
+
+### URLs
+#### 1. http://localhost:8000
+![Homepage](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/homepage.PNG)
+#### 2. http://localhost:8000/login
+![Login](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/login.PNG)
+#### 3. http://localhost:8000/register
+![Register](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/register.PNG)
+#### 4. http://localhost:8000/logout
+![Logout](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/logout.PNG)
+#### 5. http://localhost:8000/createprofile
+![CreateProfile](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/createprofile.PNG)
+#### 6. http://localhost:8000/(After Login)
+![Profile](https://github.com/Ankush-Kamboj/Logger/blob/master/screenshots/profile.PNG)
