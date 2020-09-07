@@ -1,0 +1,40 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="content-section mx-auto col-md-6">
+            <h2>Welcome {{users.name}} !</h2>
+            <div class="border-top pt-3">              
+                <div class="col-md-6">
+                    <h6>Email</h6>
+                    <p>
+                        {{users.user}}
+                    </p>
+                    <h6>College</h6>
+                    <p>
+                        {{users.college_name}}
+                    </p>
+                    <h6>Degree</h6>
+                    <p>
+                        {{users.degree}}
+                    </p>
+                    <h6>Course</h6>
+                    <p>
+                        {{users.course_name}}
+                    </p>
+                    <h6>Passout Year</h6>
+                    <p>
+                        {{users.passout_year}}
+                    </p>
+                    <h6>Age</h6>
+                    <p>
+                        {{users.age}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+{% endblock %}
